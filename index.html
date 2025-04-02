@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+    <title>My Portfolio</title>
+    <style>
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Arial", sans-serif;
+        line-height: 1.6;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        color: #fff;
+        scroll-behavior: smooth;
+        padding: 0;
+        margin: 0;
+      }
+
+      header {
+        position: sticky;
+        top: 0;
+        background: rgba(0, 0, 0, 0.6);
+        padding: 15px 20px;
+        z-index: 1000;
+      }
+
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .nav-links {
+        list-style: none;
+        display: flex;
+        gap: 20px;
+      }
+
+      .nav-links a {
+        text-decoration: none;
+        color: #fff;
+        font-weight: bold;
+        transition: color 0.3s, transform 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #ffd700;
+        transform: scale(1.1);
+      }
+
+      .logo {
+        font-size: 1.8em;
+        font-weight: bold;
+        color: #ffd700;
+      }
+
+      /* Hero Section */
+      .hero {
+        text-align: center;
+        padding:20px;
+        background: linear-gradient(to right, #6a11cb, #2575fc);
+        animation: fadeIn 1s ease-out;
+      }
+
+      .hero-title {
+        font-size: 2em;
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .highlight {
+        background: linear-gradient(to right, #f7971e, #ffd200);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        margin-left: 10px;
+        font-size: 30px;
+      }
+
+      .hero-description {
+        font-size: 1.2em;
+        margin-bottom: 30px;
+      }
+
+      .cta-button {
+        padding: 12px 25px;
+        background: linear-gradient(to right, #ffd200, #f7971e);
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 20px;
+        text-decoration: none;
+        transition: transform 0.3s;
+        margin-top: 10px;
+        width: 200px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button:hover {
+        transform: scale(1.1);
+        background: linear-gradient(to right, #ffd200, #f7971e);
+      }
+
+      /* About Section */
+      .about,
+      .projects,
+      .contact {
+        padding: 50px 20px;
+        text-align: center;
+        transition: transform 0.3s ease-in-out;
+      }
+
+      .about:hover,
+      .projects:hover,
+      .contact:hover {
+        transform: translateY(-10px);
+      }
+
+      /* Projects Section */
+      .project{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 20px;
+        gap: 15px;
+        flex-wrap: wrap;
+ 
+      }
+      .projects h2{
+        font-size: 40px;
+        background: linear-gradient(to right, #f7971e, #ffd200);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .project-card {
+        background: rgba(0, 0, 0, 0.7);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+        transition: transform 0.3s, box-shadow 0.3s;
+        height: fit-content;
+        width: 400px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .project-card h3 {
+        font-size: 1.4em;
+        margin-bottom: 10px;
+      }
+
+      .project-card p {
+        font-size: 1em;
+        color: #ddd;
+      }
+
+      .project-card:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 20px;
+        background: #222222;
+        position: relative;
+        bottom: 0;
+        width: 100%;
+        color: #fff;
+        font-size: 0.9em;
+      }
+      .aboutme{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+      }
+      .aboutme p{
+        margin-right: 10px;
+        width: 300px;
+      }
+      .techstack{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-top: 10px;
+      }
+      .link{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin-top: 10px;
+      }
+      .link a{
+        color: white;
+      }
+      .linktoapp{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      }
+      .contact{
+        display: flex;
+        flex-direction: column;
+        padding-top: 0;
+      }
+      .contact h2{
+        font-size:40px ;
+        background: linear-gradient(to right, #f7971e, #ffd200);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+      .contact p{
+        font-size: 20px;
+      }
+      .techstack .html:hover,.techstack .css:hover,.techstack .js:hover,.link .github:hover,.techstack .react:hover,.connects .instagram:hover,.connects .linkdin:hover,.connects .github:hover{
+        background-color: #ffd200;
+        cursor: pointer;
+      }
+      .about h2{
+        font-size: 40px;
+        background: linear-gradient(to right, #f7971e, #ffd200);
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      /* Keyframe Animations */
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2em;
+        }
+
+        .cta-button {
+          padding: 10px 20px;
+          font-size: 1em;
+        }
+
+
+        .nav-links {
+          display: flex;
+          flex-direction: column;
+          gap: 15px;
+          align-items: center;
+        }
+
+        .logo {
+          font-size: 1.5em;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="navbar">
+        <a href="#" class="logo">My Portfolio</a>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h1 class="hero-title">
+        <div class="herohello">Hello,I'm</div>
+        <p class="highlight">Navin Kumar N J</p>
+      </h1>
+      <p class="hero-description">
+        A tech enthusiast with a passion for creating innovative solutions.
+      </p>
+      <p class="connects">
+        <a href="https://www.instagram.com/ft._navin?utm_source=qr&igsh=MThkcDZyMWs2aml1ZQ=="><img src="instagram.svg" alt="" height="60px" width="60px" class="instagram"></a>
+        <a href="https://www.linkedin.com/in/navin-kumar-6491b331b?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><img src="linkedin.svg" alt="" height="60px" width="60px" class="linkdin"></a>
+        <a href="https://github.com/NAVIN2709"><img src="github.svg" alt="" height="60px" width="60px" class="github"></a>
+      </p>
+    </section>
+
+    <section id="about" class="about">
+      <h2>About Me</h2>
+      <div class="aboutme">
+        <p>
+          Hi, I’m Navin, a passionate full-stack developer with a keen interest in building innovative and scalable web applications. I specialize in React.js, Flask, Node.js, and MongoDB, focusing on crafting efficient and user-friendly digital experiences.
+
+At NIT Trichy, I am actively involved in Aaveg's operations team and the Festember workshops and informals team, contributing to event organization and execution. I’ve also contributed to the Ride NITT app, helping enhance transportation solutions for the campus community.
+        </p>
+        <img src="profile.png" alt="" height="250px">
+      </div>
+    </section>
+
+    <section id="projects" class="projects">
+      <h2>My Projects</h2>
+      <div class="project">
+        <div class="project-card">
+          <h3>DPay Fake App</h3>
+          <p>This is about a loophole in Nitt's Dpay app which I used to make an app based on it for free food. 
+          </p>
+          <div class="techstack">
+            <img src="html5.svg" alt="html" height="60px" width="60px" class="html">
+            <img src="css3.svg" alt="css" height="60px" width="60px" class="css">
+            <img src="js.svg" alt="js" height="60px" width="60px" class="js">
+          </div>
+          <div class="link">
+            <a href="https://github.com/NAVIN2709/Dpay-Fake"><img src="github.svg" alt="github-dpay" height="60px" width="60px" class="github"></img></a>
+            <p class="linktoapp"><a href="https://dpay-fake.netlify.app/">link to app</a></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>NFPay Fake App</h3>
+          <p>This is about a loophole in Nitt's NFpay app which I used to make an app based on it for free food. 
+          </p>
+          <div class="techstack">
+            <img src="html5.svg" alt="html" height="60px" width="60px" class="html">
+            <img src="css3.svg" alt="css" height="60px" width="60px" class="css">
+            <img src="js.svg" alt="js" height="60px" width="60px" class="js">
+          </div>
+          <div class="link">
+            <a href="https://github.com/NAVIN2709/NFPay-Fake"><img src="github.svg" alt="github-dpay" height="60px" width="60px" class="github"></img></a>
+            <p class="linktoapp"><a href="https://nfpay-fake.netlify.app/">link to app</a></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Valetine's Day Website</h3>
+          <p>A website for valentine's day where you can experience different emotions.
+          </p>
+          <div class="techstack">
+            <img src="html5.svg" alt="html" height="60px" width="60px" class="html">
+            <img src="css3.svg" alt="css" height="60px" width="60px" class="css">
+            <img src="js.svg" alt="js" height="60px" width="60px" class="js">
+          </div>
+          <div class="link">
+            <a href="https://github.com/NAVIN2709/love-web2"><img src="github.svg" alt="github-dpay" height="60px" width="60px" class="github"></img></a>
+            <p class="linktoapp"><a href="https://happy-valetines-day.netlify.app/">link to website</a></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Interactive Click-Based Website</h3>
+          <p>A website where if you click the image moves out of the screen.
+          </p>
+          <div class="techstack">
+            <img src="html5.svg" alt="html" height="60px" width="60px" class="html">
+            <img src="css3.svg" alt="css" height="60px" width="60px" class="css">
+            <img src="js.svg" alt="js" height="60px" width="60px" class="js">
+          </div>
+          <div class="link">
+            <a href="https://github.com/NAVIN2709/pics-click"><img src="github.svg" alt="github-dpay" height="60px" width="60px" class="github"></img></a>
+            <p class="linktoapp"><a href="https://i-love-you-chello.netlify.app/">link to website</a></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>RideNITT App</h3>
+          <p>A ride sharing app for NITT students.I worked on the frontend of the app.
+          </p>
+          <div class="techstack">
+            <img src="html5.svg" alt="html" height="60px" width="60px" class="html">
+            <img src="css3.svg" alt="css" height="60px" width="60px" class="css">
+            <img src="js.svg" alt="js" height="60px" width="60px" class="js">
+            <img src="react.svg" alt="react" height="60px" width="60px" class="react">
+          </div>
+          <div class="link">
+            <a href="https://github.com/NAVIN2709/rent-a-ride"><img src="github.svg" alt="github-dpay" height="60px" width="60px" class="github"></img></a>
+            <p class="linktoapp"><a href="" style="pointer-events: none; color: gray;">app will be launched soon</a></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>Anonmyous Chat App</h3>
+          <p>A chat app where you can post content anonymously.
+          </p>
+          <div class="techstack">
+            <img src="html5.svg" alt="html" height="60px" width="60px" class="html">
+            <img src="css3.svg" alt="css" height="60px" width="60px" class="css">
+            <img src="js.svg" alt="js" height="60px" width="60px" class="js">
+            <img src="react.svg" alt="react" height="60px" width="60px" class="react">
+          </div>
+          <div class="link">
+            <a href="https://github.com/NAVIN2709/Anonymous-chat"><img src="github.svg" alt="github-dpay" height="60px" width="60px" class="github"></img></a>
+            <p class="linktoapp"><a href="https://anonymous-chat-nitt.vercel.app/">link to app</a></p>
+          </div>
+        </div>
+        <div class="project-card">
+          <h3>KapdaSwag</h3>
+          <p>My startup app idea tinder for clothes.
+          </p>
+          <div class="techstack">
+            <img src="html5.svg" alt="html" height="60px" width="60px" class="html">
+            <img src="css3.svg" alt="css" height="60px" width="60px" class="css">
+            <img src="js.svg" alt="js" height="60px" width="60px" class="js">
+            <img src="react.svg" alt="react" height="60px" width="60px" class="react">
+          </div>
+          <div class="link">
+            <a href="https://github.com/NAVIN2709/KapdaSwag"><img src="github.svg" alt="github-dpay" height="60px" width="60px" class="github"></img></a>
+            <p class="linktoapp"><a href="" style="pointer-events: none; color: gray;">app will be launched soon</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h2>Contact Me</h2>
+      <p>Feel free to reach out!</p>
+      <a href="mailto:navinnit2006@gmail.com" class="cta-button">Send Email</a>
+    </section>
+
+    <footer class="footer">
+      <p>&copy; 2025 All rights reserved.</p>
+      <p>Made with ❤️ By Navin</p>
+    </footer>
+  </body>
+</html>
